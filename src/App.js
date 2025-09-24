@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react';
 import investments from './data';
 import './index.css';
 
+const STARTING_BASELINE = 2000;     // $2,000 fix
+const INVESTOR_RATE     = 0.70;     // Dragoș 70%
+const MANAGER_RATE      = 0.30;     // Alex 30%
+const TARGET_DATE       = "December 31, 2025";
+const CASH_RESERVED     = 0;
+
 function App() {
   const [prices, setPrices] = useState({});
   const [loading, setLoading] = useState(true);
@@ -76,11 +82,19 @@ function App() {
     };
   });
 
-  const totalValue = processedData.reduce((sum, item) => sum + item.value, 0);
-  const totalInvestment = processedData.reduce((sum, item) => sum + item.investment, 0);
-  const totalProfit = totalValue - totalInvestment;
-  const andreisShare = totalInvestment + 0.7 * totalProfit;
-  const alexsShare = totalProfit > 0 ? 0.3 * totalProfit : 0;
+const totalValue = processedData.reduce((sum, item) => sum + item.value, 0);
+const totalInvestment = processedData.reduce((sum, item) => sum + item.investment, 0);
+
+// baseline fix de la care începi împărțirea
+const base = STARTING_BASELINE;
+
+// profitul eligibil pentru split = DOAR ce depășește baseline-ul
+const profitAboveBase = Math.max(0, totalValue - base);
+
+// împărțirea 70/30 DOAR din profitul peste baseline
+const dragosShare = INVESTOR_RATE * profitAboveBase;
+const alexShare   = MANAGER_RATE  * profitAboveBase;
+
 
   const format = (val, decimals = 2) => Number(val).toFixed(decimals);
 
@@ -122,13 +136,16 @@ function App() {
       </div>
 
       {!loading && (
-        <div className="mt-8 space-y-2 text-cyan-200">
-          <p><strong>Total Portfolio Value:</strong> ${format(totalValue)}</p>
-          <p><strong>Andrei's Share (70% profit + total):</strong> ${format(andreisShare)}</p>
-          <p><strong>Alex's Share (30% profit):</strong> ${format(alexsShare)}</p>
-          <p><strong>Target date for closing:</strong> December 31, 2025</p>
-          <p><strong>Cash reserved for dips:</strong> $0</p>
-        </div>
+<div className="mt-8 space-y-2 text-cyan-200">
+  <p><strong>Starting Investment (baseline):</strong> ${format(base)}</p>
+  <p><strong>Total Portfolio Value:</strong> ${format(totalValue)}</p>
+  <p><strong>Profit above baseline:</strong> ${format(profitAboveBase)}</p>
+  <p><strong>Dragoș’s Share (70% over baseline):</strong> ${format(dragosShare)}</p>
+  <p><strong>Alex’s Share (30% over baseline):</strong> ${format(alexShare)}</p>
+  <p><strong>Target date for closing:</strong> {TARGET_DATE}</p>
+  <p><strong>Cash reserved for dips:</strong> ${format(CASH_RESERVED)}</p>
+</div>
+
       )}
     </div>
   );
