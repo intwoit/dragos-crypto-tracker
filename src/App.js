@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import investments from './data';
 import './index.css';
 
-const STARTING_BASELINE = 1700;     // $1,700 fix
+const STARTING_BASELINE = 2000;     // $2,000 fix
 const INVESTOR_RATE     = 0.70;     // Dragoș 70%
 const MANAGER_RATE      = 0.30;     // Alex 30%
 const TARGET_DATE       = "December 31, 2025";
-const CASH_RESERVED     = 0;
+const CASH_RESERVED     = 1200;
 
 function App() {
   const [prices, setPrices] = useState({});
