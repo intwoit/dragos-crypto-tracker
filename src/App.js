@@ -16,8 +16,8 @@ function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [passwordInput, setPasswordInput] = useState('');
 
- useEffect(() => {
-  fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,chainlink,fetch-ai,cardano&vs_currencies=usd')
+useEffect(() => {
+  fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,chainlink,fetch-ai,cardano,solana&vs_currencies=usd')
     .then(res => res.json())
     .then(data => {
       const formatted = {
@@ -26,6 +26,7 @@ function App() {
         LINK: data.chainlink?.usd ?? 0,
         FET: data["fetch-ai"]?.usd ?? 0,
         ADA: data.cardano?.usd ?? 0,
+        SOL: data.solana?.usd ?? 0,   // 👈 nou
       };
       setPrices(formatted);
       setLoading(false);

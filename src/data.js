@@ -1,22 +1,30 @@
 const investments = [
 {
-    asset: "ADA",
-    entries: [
-      { amount: 1070 / 0.852, price: 0.852 },
-     ]
-  },
-{
-    asset: "LINK",
-    entries: [
-      { amount: 1441 / 21.61, price: 21.61 },
-     ]
-  },
-{
     asset: "BTC",
     entries: [
-      { amount: 0.05, price: 40000 }, // exemplu: 0.05 BTC cumpărat la $40,000
-    ]
+      { amount: 300 / 113038.12, price: 113038.12 },
+     ]
   },
+{
+    asset: "ETH",
+    entries: [
+      { amount: 300 / 4177.78, price: 4177.78 },
+     ]
+  },
+{
+ asset: "LINK",
+    entries: [
+      { amount: 100 / 21.78, price: 21.78 },
+     ]
+  },
+{
+ asset: "SOL",
+    entries: [
+      { amount: 100 / 212.57, price: 212.57 },
+     ]
+  },
+
+
 ];
 
 export const clientConfig = {
