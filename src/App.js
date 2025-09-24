@@ -43,7 +43,7 @@ function App() {
         />
         <button
           onClick={() => {
-            if (passwordInput === 'andrei2025') {
+            if (passwordInput === 'dragos2025') {
               setAuthenticated(true);
             } else {
               alert('Wrong password');
@@ -87,7 +87,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-tr from-black via-gray-900 to-gray-800 text-white p-6 font-mono">
       <h1 className="text-3xl text-cyan-400 font-bold mb-8 border-b border-cyan-700 pb-2">
-        Andrei Crypto Tracker
+        Dragos Crypto Tracker
       </h1>
 
       <div className="overflow-x-auto">
