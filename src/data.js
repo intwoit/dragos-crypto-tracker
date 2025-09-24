@@ -11,6 +11,12 @@ const investments = [
       { amount: 1441 / 21.61, price: 21.61 },
      ]
   },
+{
+    asset: "BTC",
+    entries: [
+      { amount: 0.05, price: 40000 }, // exemplu: 0.05 BTC cumpărat la $40,000
+    ]
+  },
 ];
 
 export const clientConfig = {

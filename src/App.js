@@ -16,22 +16,23 @@ function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [passwordInput, setPasswordInput] = useState('');
 
-  useEffect(() => {
-    fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum,chainlink,fetch-ai,cardano&vs_currencies=usd')
-      .then(res => res.json())
-      .then(data => {
-        const formatted = {
-          ETH: data.ethereum?.usd ?? 0,
-          LINK: data.chainlink?.usd ?? 0,
-          FET: data["fetch-ai"]?.usd ?? 0,
-	  ADA: data.cardano?.usd ?? 0,
-        };
-        setPrices(formatted);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error('Failed to fetch prices:', err);
-        setLoading(false);
+ useEffect(() => {
+  fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,chainlink,fetch-ai,cardano&vs_currencies=usd')
+    .then(res => res.json())
+    .then(data => {
+      const formatted = {
+        BTC: data.bitcoin?.usd ?? 0,
+        ETH: data.ethereum?.usd ?? 0,
+        LINK: data.chainlink?.usd ?? 0,
+        FET: data["fetch-ai"]?.usd ?? 0,
+        ADA: data.cardano?.usd ?? 0,
+      };
+      setPrices(formatted);
+      setLoading(false);
+    })
+    .catch(err => {
+      console.error('Failed to fetch prices:', err);
+      setLoading(false);
       });
   }, []);
 
