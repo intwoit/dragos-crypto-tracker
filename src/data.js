@@ -17,12 +17,6 @@ const investments = [
       { amount: 100 / 15.94, price: 15.94 },
      ]
   },
-{
- asset: "SOL",
-    entries: [
-      { amount: 0 / 222.80, price: 222.80 },
-     ]
-  },
 
 
 ];
