@@ -8,7 +8,7 @@ const investments = [
 {
     asset: "ETH",
     entries: [
-      { amount: 560 / 3847.85, price: 3847.85 },
+      { amount: 710 / 3651.7, price: 3651.7 },
      ]
   },
 {
@@ -25,7 +25,7 @@ export const clientConfig = {
   startingInvestment: 2000,   // baseline fix
   split: { investor: 0.70, manager: 0.30 },
   targetDate: "2025-12-31",
-  cashReserved: 450,
+  cashReserved: 350,
 };
 
 export default investments;
