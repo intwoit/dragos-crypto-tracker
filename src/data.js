@@ -8,7 +8,7 @@ const investments = [
 {
     asset: "ETH",
     entries: [
-      { amount: 710 / 3651.7, price: 3651.7 },
+      { amount: 810 / 3556.9, price: 3556.9 },
      ]
   },
 {
