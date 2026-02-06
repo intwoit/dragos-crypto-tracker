@@ -5,7 +5,7 @@ import './index.css';
 const STARTING_BASELINE = 2000;     // $2,000 fix
 const INVESTOR_RATE     = 0.70;     // Dragoș 70%
 const MANAGER_RATE      = 0.30;     // Alex 30%
-const CASH_RESERVED     = 100;
+const CASH_RESERVED     = 0;
 
 function App() {
   const [prices, setPrices] = useState({});
